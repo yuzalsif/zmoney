@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(12.0),
               child: Column(
                 children: [
                   Container(
@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 12.0),
+                    padding: EdgeInsets.only(top: 8.0),
                     child: Column(
                       children: [
                         Text(
@@ -89,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.transparent,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -115,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 4),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -142,7 +142,10 @@ class HomeScreen extends StatelessWidget {
                           cardColor: LinearGradient(
                             begin: Alignment(0.71, -0.71),
                             end: Alignment(-0.71, 0.71),
-                            colors: [Color(0x9950C4747).withOpacity(0.7), Color(0xFF298408)],
+                            colors: [
+                              Color(0x9950C4747).withOpacity(0.7),
+                              Color(0xFF298408)
+                            ],
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
@@ -152,6 +155,175 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 8, vertical: 0),
+              width: double.infinity,
+              height: 90,
+              child: Card(
+                elevation: 8,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: ShapeDecoration(
+                              color: Color(0xFF27AE60),
+                              shape: CircleBorder(
+                                side: BorderSide(
+                                  width: 1,
+                                  color: Colors.black.withOpacity(0.4),
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.arrow_downward,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Deposit',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 10,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w400,
+                              height: 0,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: ShapeDecoration(
+                              color: Color(0xFF3498DB),
+                              shape: CircleBorder(
+                                side: BorderSide(
+                                  width: 1,
+                                  color: Colors.black.withOpacity(0.4),
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.send,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Send',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 10,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w400,
+                              height: 0,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: ShapeDecoration(
+                              color: Color(0xFFF39C12),
+                              shape: CircleBorder(
+                                side: BorderSide(
+                                  width: 1,
+                                  color: Colors.black.withOpacity(0.4),
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.request_page,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Request',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 10,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w400,
+                              height: 0,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: ShapeDecoration(
+                              color: Color(0xFFE74C3C),
+                              shape: CircleBorder(
+                                side: BorderSide(
+                                  width: 1,
+                                  color: Colors.black.withOpacity(0.4),
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.arrow_upward,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Withdraw',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 10,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w400,
+                              height: 0,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 24),
+            // Row(
+            //   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     Text(
+            //       'History',
+            //       style: TextStyle(fontSize: 16, ),
+            //     ),
+            //     Text(
+            //       'View All',
+            //       style: TextStyle(fontSize: 16, color: Colors.blue),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),
@@ -185,7 +357,8 @@ class BankAccountCard extends StatelessWidget {
       height: 169,
       decoration: ShapeDecoration(
         gradient: cardColor,
-        shape: RoundedRectangleBorder(borderRadius: borderRadius ?? BorderRadius.circular(8.0)),
+        shape: RoundedRectangleBorder(
+            borderRadius: borderRadius ?? BorderRadius.circular(8.0)),
         shadows: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -207,7 +380,6 @@ class BankAccountCard extends StatelessWidget {
                 bankName,
                 style: TextStyle(color: Colors.white),
               ),
-
               Icon(
                 bankLogo,
                 size: 25.0,
@@ -220,19 +392,23 @@ class BankAccountCard extends StatelessWidget {
           //   'Account Holder: $accountHolder',
           //   style: TextStyle(color: Colors.white),
           // ),
-         // SizedBox(height: 8.0),
+          // SizedBox(height: 8.0),
           Center(
             child: FittedBox(
               child: Text(
-                 accountNumber,
-                style: TextStyle(color: Colors.white, fontSize: 20, letterSpacing: 4, fontWeight: FontWeight.bold),
+                accountNumber,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    letterSpacing: 4,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ),
           SizedBox(height: 30.0),
           Text(
             'Balance: $balance',
-            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold ),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ],
       ),
