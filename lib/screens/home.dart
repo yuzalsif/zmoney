@@ -7,22 +7,20 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Color.fromARGB(255, 235, 233, 233), // Set the background color here
+      backgroundColor: Color.fromARGB(255, 235, 233, 233),
       appBar: AppBar(
-        backgroundColor:
-            Color.fromARGB(255, 235, 233, 233), // Set a transparent background
-        elevation: 0, // Remove the elevation shadow
+        backgroundColor: Color.fromARGB(255, 235, 233, 233),
+        elevation: 0,
         title: Text(
-          'z money', // Your app title
+          'z money',
           style: GoogleFonts.caveatBrush(
             textStyle: TextStyle(
-              color: Colors.black, // Text color
-              fontSize: 32, // Adjust the size as needed
+              color: Colors.black,
+              fontSize: 32,
             ),
           ),
         ),
-        centerTitle: true, // Center the title horizontally
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -31,10 +29,9 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  // First Divider
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey[300], // Adjust the color as needed
+                      color: Colors.grey[300],
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey,
@@ -49,8 +46,6 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.transparent,
                     ),
                   ),
-      
-                  // Text, Asterisks, Show Text, and Eye Icon
                   Container(
                     padding: EdgeInsets.only(top: 12.0),
                     child: Column(
@@ -67,7 +62,6 @@ class HomeScreen extends StatelessWidget {
                             letterSpacing: 4,
                           ),
                         ),
-                        //  SizedBox(height: 1.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -78,11 +72,9 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-      
-                  // Second Divider
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey[300], // Adjust the color as needed
+                      color: Colors.grey[300],
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey,
@@ -97,9 +89,7 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.transparent,
                     ),
                   ),
-                  SizedBox(
-                    height: 16,
-                  ),
+                  SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -107,51 +97,55 @@ class HomeScreen extends StatelessWidget {
                         'Cards',
                         style: TextStyle(fontSize: 18.0),
                       ),
-                      SizedBox(width: 2.0), // Adjust spacing as needed
+                      SizedBox(width: 2.0),
                       Container(
                         width: 25.0,
                         height: 25.0,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.grey.withOpacity(
-                              0.2), // Set the color of the circular container
+                          color: Colors.grey.withOpacity(0.2),
                         ),
                         child: Center(
                           child: Icon(
                             Icons.add,
                             size: 20.0,
-                            color: Colors.black, // Set the color of the add icon
+                            color: Colors.black,
                           ),
                         ),
                       )
                     ],
                   ),
-                  SizedBox(
-                    height: 16,
-                  ),
+                  SizedBox(height: 16),
                   SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                    child:  Row(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
                       children: [
                         BankAccountCard(
                           bankLogo: Icons.account_balance,
-                          bankName: 'Bank of Flutter',
+                          bankName: 'NBC BANK',
                           accountHolder: 'John Doe',
-                          accountNumber: '1234 5678 9012 3456',
-                          balance: '\$1,234.56',
-                          cardColor: Color(0xFF3498db).withOpacity(0.9),
-                         
+                          accountNumber: '**** **** **** 3456',
+                          balance: '\Tshs 231,234.56',
+                          cardColor: LinearGradient(
+                            begin: Alignment(0.71, -0.71),
+                            end: Alignment(-0.71, 0.71),
+                            colors: [Color(0xFF94EDF7), Color(0xFF94C3F6)],
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         BankAccountCard(
                           bankLogo: Icons.account_balance,
-                          bankName: 'Dart Bank',
+                          bankName: 'CRDB BANK',
                           accountHolder: 'Jane Smith',
-                          accountNumber: '9876 5432 1098 7654',
-                          balance: '\$2,345.67',
-                          cardColor: Color(0xFF2ecc71).withOpacity(0.9),
-                         
+                          accountNumber: '**** **** **** 7654',
+                          balance: '\Tshs 72,345.67',
+                          cardColor: LinearGradient(
+                            begin: Alignment(0.71, -0.71),
+                            end: Alignment(-0.71, 0.71),
+                            colors: [Color(0x9950C4747).withOpacity(0.7), Color(0xFF298408)],
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                        // Add more BankAccountCard widgets as needed
                       ],
                     ),
                   ),
@@ -171,8 +165,8 @@ class BankAccountCard extends StatelessWidget {
   final String accountHolder;
   final String accountNumber;
   final String balance;
-  final Color cardColor;
- 
+  final LinearGradient cardColor;
+  final BorderRadiusGeometry? borderRadius;
 
   BankAccountCard({
     required this.bankLogo,
@@ -181,27 +175,18 @@ class BankAccountCard extends StatelessWidget {
     required this.accountNumber,
     required this.balance,
     required this.cardColor,
-    
+    this.borderRadius,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 280,
-      height: 150,
-      decoration: BoxDecoration(
-        color: cardColor,
-        borderRadius: BorderRadius.circular(12.0),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          stops: [0.3, 0.7],
-          colors: [
-            cardColor.withOpacity(0.9),
-            cardColor.withOpacity(0.6),
-          ],
-        ),
-        boxShadow: [
+      width: 273,
+      height: 169,
+      decoration: ShapeDecoration(
+        gradient: cardColor,
+        shape: RoundedRectangleBorder(borderRadius: borderRadius ?? BorderRadius.circular(8.0)),
+        shadows: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 1,
@@ -210,7 +195,7 @@ class BankAccountCard extends StatelessWidget {
           ),
         ],
       ),
-      margin: EdgeInsets.all(8.0),
+      margin: EdgeInsets.only(right: 16.0),
       padding: EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,31 +203,36 @@ class BankAccountCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                bankLogo,
-                size: 30.0,
-                color: Colors.white,
-              ),
               Text(
                 bankName,
                 style: TextStyle(color: Colors.white),
               ),
+
+              Icon(
+                bankLogo,
+                size: 25.0,
+                color: Colors.white,
+              ),
             ],
           ),
-          SizedBox(height: 8.0),
-          Text(
-            'Account Holder: $accountHolder',
-            style: TextStyle(color: Colors.white),
+          SizedBox(height: 34.0),
+          // Text(
+          //   'Account Holder: $accountHolder',
+          //   style: TextStyle(color: Colors.white),
+          // ),
+         // SizedBox(height: 8.0),
+          Center(
+            child: FittedBox(
+              child: Text(
+                 accountNumber,
+                style: TextStyle(color: Colors.white, fontSize: 20, letterSpacing: 4, fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
-          SizedBox(height: 8.0),
-          Text(
-            'Account Number: $accountNumber',
-            style: TextStyle(color: Colors.white),
-          ),
-          SizedBox(height: 8.0),
+          SizedBox(height: 30.0),
           Text(
             'Balance: $balance',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold ),
           ),
         ],
       ),
