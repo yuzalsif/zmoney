@@ -6,6 +6,7 @@ import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 import 'package:zmoney/database/bank_card.dart';
+import 'package:zmoney/models/bank_account.dart';
 
 part 'local_database.g.dart';
 
@@ -46,6 +47,11 @@ class BankCardDao extends DatabaseAccessor<AppDatabase>
     return into(bankCard).insert(card);
   }
 
+  // Delete a specific card
+  Future<int> deleteCard(int cardId) {
+    return (delete(bankCard)..where((tbl) => tbl.id.equals(cardId))).go();
+  }
+
   // Withdraw from a specific card
   Future<bool> withdrawFromCard(int cardId, double amount) async {
     // Get the card from the database
@@ -61,4 +67,23 @@ class BankCardDao extends DatabaseAccessor<AppDatabase>
     // Update the card in the database
     return update(bankCard).replace(updatedCard);
   }
+}
+
+// conversion methods
+
+BankAccount driftBankCardToBankAccount(BankCardData card) {
+  return BankAccount(
+      accountId: card.id.toString(),
+      bankName: card.bankName,
+      cardNumber: card.cardNumber,
+      balance: card.balance,
+      cardHolder: card.cardHolder);
+}
+
+BankCardCompanion bankAccountTodriftBankCard(BankAccount card) {
+  return BankCardCompanion.insert(
+      bankName: card.bankName,
+      balance: card.balance,
+      cardNumber: card.cardNumber,
+      cardHolder: card.cardHolder);
 }

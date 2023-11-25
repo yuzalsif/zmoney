@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:zmoney/constants/repository.dart';
+import 'package:zmoney/database/local_database_reposiotry.dart';
 import 'package:zmoney/screens/home.dart';
 
-void main() {
+
+
+void main() async {
+  repository = LocalDatabaseRepository();
+  await repository.init();
   runApp(const MyApp());
 }
 
