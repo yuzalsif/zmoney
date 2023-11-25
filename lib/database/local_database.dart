@@ -6,12 +6,14 @@ import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 import 'package:zmoney/database/bank_card.dart';
+import 'package:zmoney/database/drift_user_in_app_money_account.dart';
 import 'package:zmoney/models/bank_account.dart';
+import 'package:zmoney/models/user_in_app_money_account.dart';
 
 part 'local_database.g.dart';
 
 @DriftDatabase(
-  tables: [BankCard],
+  tables: [BankCard, DriftUserInAppMoneyAccount,],
   daos: [BankCardDao],
 )
 class AppDatabase extends _$AppDatabase {
@@ -86,4 +88,20 @@ BankCardCompanion bankAccountTodriftBankCard(BankAccount card) {
       balance: card.balance,
       cardNumber: card.cardNumber,
       cardHolder: card.cardHolder);
+}
+
+// conversion methods
+
+UserInAppMoneyAccount driftUserInAppMoneyAccountToUserInAppMoneyAccount(
+    DriftUserInAppMoneyAccountData account) {
+  return UserInAppMoneyAccount(
+      id: account.id.toString(), balance: account.balance);
+}
+
+DriftUserInAppMoneyAccountCompanion userInAppMoneyAccountToDriftUserInAppMoneyAccount(
+    UserInAppMoneyAccount account) {
+  return DriftUserInAppMoneyAccountCompanion.insert(
+    id: Value(int.parse(account.id)),
+    balance: account.balance,
+  );
 }
