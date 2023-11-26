@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 235, 233, 233),
         elevation: 0,
         title: Text(
-          'z money',
+          'Z Money',
           style: GoogleFonts.caveatBrush(
             textStyle: TextStyle(
               color: Colors.black,
@@ -89,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.transparent,
                     ),
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -115,7 +123,7 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: 16),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -160,7 +168,6 @@ class HomeScreen extends StatelessWidget {
               width: double.infinity,
               height: 90,
               child: Card(
-                elevation: 8,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(2),
                 ),
@@ -311,21 +318,125 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24),
-            // Row(
-            //   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: [
-            //     Text(
-            //       'History',
-            //       style: TextStyle(fontSize: 16, ),
-            //     ),
-            //     Text(
-            //       'View All',
-            //       style: TextStyle(fontSize: 16, color: Colors.blue),
-            //     ),
-            //   ],
-            // ),
+            Row(
+              children: [
+                SizedBox(width: 16),
+                Text(
+                  'History',
+                  style: TextStyle(fontSize: 16),
+                ),
+                SizedBox(width: 253),
+                Text(
+                  'View All',
+                  style: TextStyle(fontSize: 16, color: Colors.blue),
+                ),
+              ],
+            ),
+            SizedBox(height: 8),
+            Container(
+              width: 368,
+              child: ListTile(
+                contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                tileColor: Colors.white,
+                leading: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Transfer to Yus',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '24 04 2012.08:00 pm',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xFF979797),
+                      ),
+                    ),
+                  ],
+                ),
+                trailing: Text(
+                  'Tshs 24,000',
+                  style: TextStyle(
+                    color: Color(0xFFFF0808),
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 8),
+            Container(
+              width: 368,
+              child: ListTile(
+                contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                tileColor: Colors.white,
+                leading: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'deposit',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '24 04 2012.08:00 pm',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xFF979797),
+                      ),
+                    ),
+                  ],
+                ),
+                trailing: Text(
+                  'Tshs 124,000',
+                  style: TextStyle(
+                    color: Color(0xFF27AE60),
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xFFDADADA),
+        selectedItemColor: Colors.blue,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.insert_chart),
+            label: 'Stats',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'Calendar',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }
@@ -388,11 +499,6 @@ class BankAccountCard extends StatelessWidget {
             ],
           ),
           SizedBox(height: 34.0),
-          // Text(
-          //   'Account Holder: $accountHolder',
-          //   style: TextStyle(color: Colors.white),
-          // ),
-          // SizedBox(height: 8.0),
           Center(
             child: FittedBox(
               child: Text(
