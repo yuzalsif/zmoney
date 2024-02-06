@@ -21,7 +21,11 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: const SafeArea(
+<<<<<<< HEAD
           child: InitialScreen(),
+=======
+          child: HomeScreen(),
+>>>>>>> 7547a37166274f91c387a33ced5a44acacacee51
         ),
         routes: {
           

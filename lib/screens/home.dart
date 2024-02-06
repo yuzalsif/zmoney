@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+<<<<<<< HEAD
 import 'package:provider/provider.dart';
 import 'package:zmoney/models/bank_account.dart';
 import 'package:zmoney/providers/bank_cards.dart';
 
 import 'package:intl/intl.dart';
 import 'dart:math';
+=======
+import 'package:zmoney/screens/analytics.dart';
+import 'package:zmoney/screens/dashboard.dart';
+import 'package:zmoney/screens/history.dart';
+import 'package:zmoney/screens/saving.dart';
+>>>>>>> 7547a37166274f91c387a33ced5a44acacacee51
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,6 +25,13 @@ class HomeScreenState extends State<HomeScreen> {
   BankCard? selectedCard;
   double totalBalance = 0.0;
   bool isBalanceVisible = false;
+
+  final pages = [
+    const Dashboard(),
+    const HistoryScreen(),
+    const SavingScreen(),
+    AnalyticsPage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +53,7 @@ class HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
       ),
+<<<<<<< HEAD
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -720,4 +735,38 @@ void _showAddCardDialog(BuildContext context) {
       );
     },
   );
+=======
+      body: pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xFFDADADA),
+        selectedItemColor: Colors.blue,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.insert_chart),
+            label: 'Stats',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'Savings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Analytics',
+          ),
+        ],
+      ),
+    );
+  }
+>>>>>>> 7547a37166274f91c387a33ced5a44acacacee51
 }

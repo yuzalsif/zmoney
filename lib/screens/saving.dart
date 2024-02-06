@@ -38,18 +38,6 @@ class _SavingScreenState extends State<SavingScreen> {
       create: (context) => GoalProvider(),
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 235, 233, 233),
-        appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 235, 233, 233),
-          elevation: 0,
-          title: Text(
-            'z money',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 32,
-            ),
-          ),
-          centerTitle: true,
-        ),
         body: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
@@ -130,7 +118,10 @@ class _SavingScreenState extends State<SavingScreen> {
           },
           child: const Icon(Icons.add),
         ),
+<<<<<<< HEAD
       
+=======
+>>>>>>> 7547a37166274f91c387a33ced5a44acacacee51
       ),
     );
   }

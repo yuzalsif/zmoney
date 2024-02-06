@@ -8,20 +8,6 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 235, 233, 233),
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 235, 233, 233),
-        elevation: 0,
-        title: Text(
-          'Z Money',
-          style: GoogleFonts.caveatBrush(
-            textStyle: TextStyle(
-              color: Colors.black,
-              fontSize: 32,
-            ),
-          ),
-        ),
-        centerTitle: true,
-      ),
       body: Padding(
         padding: const EdgeInsets.only(left: 12, ),
         child: Column(
