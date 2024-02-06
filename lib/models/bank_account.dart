@@ -1,15 +1,22 @@
-class BankAccount {
-  String accountId;
-  String bankName;
-  String cardNumber;
-  double balance;
-  String cardHolder;
+import 'package:flutter/material.dart';
 
-  BankAccount({
-    required this.accountId,
+class BankCard  with ChangeNotifier {
+  final IconData bankLogo;
+  final String bankName;
+  final String accountHolder;
+  final String accountNumber;
+  String balance;
+  final Gradient? cardColor;
+  final BorderRadiusGeometry? borderRadius;
+
+  BankCard({
+    required this.bankLogo,
     required this.bankName,
-    required this.cardNumber,
+    required this.accountHolder,
+    required this.accountNumber,
     required this.balance,
-    required this.cardHolder,
+    required this.cardColor,
+    this.borderRadius,
   });
+
 }

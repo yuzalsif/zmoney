@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:zmoney/screens/individual_goal_screen.dart';
+import 'package:zmoney/screens/individual-goal.dart';
 import '../models/goal.dart';
 import '../providers/goal.dart';
 
@@ -130,37 +130,7 @@ class _SavingScreenState extends State<SavingScreen> {
           },
           child: const Icon(Icons.add),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.blue,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-              if (index == 2) {
-                Navigator.of(context).pushNamed(SavingScreen.routeName);
-              }
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.insert_chart),
-              label: 'Stats',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today),
-              label: 'Calendar',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-        ),
+      
       ),
     );
   }

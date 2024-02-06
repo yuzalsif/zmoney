@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zmoney/providers/goal.dart'; // Import your GoalProvider
-import 'package:zmoney/screens/history.dart';
-
-import 'package:zmoney/screens/home.dart';
-import 'package:zmoney/screens/saving.dart';
+import 'package:zmoney/providers/bank_cards.dart';
+import 'package:zmoney/screens/main.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -16,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => GoalProvider(), // Initialize your GoalProvider
+      create: (context) => BankCards(), 
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'zmoney',
@@ -24,7 +21,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: const SafeArea(
-          child: HistoryScreen(),
+          child: InitialScreen(),
         ),
         routes: {
           
